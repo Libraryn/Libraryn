@@ -40,9 +40,9 @@ function App() {
   }
   return (
     <div className="grid-container">
-      <Details />
-      <Library />
       <Sidebar />
+      <Library />
+      <Details />
     </div>
   );
 }
