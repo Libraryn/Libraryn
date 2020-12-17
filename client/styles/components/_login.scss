@@ -1,0 +1,25 @@
+@import 'colors';
+
+.Login {
+  border: 1px solid black;
+  height: 100vh;
+  position: relative;
+  .backgroundimage {
+    display: inline;
+    width: 100vw;
+    height: auto;
+    position: absolute;
+  }
+  .loginform {
+    width: 20vw;
+    height: 40vh;
+    position: relative;
+    float: right;
+    margin-right: 15em;
+    margin-top: 24em;
+    padding: 3em;
+    border-radius: 2em;
+    background-color: transparentize($primary100, 0.7);
+    box-shadow: 2px 2px 8px $primary200;
+  }
+}

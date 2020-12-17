@@ -43,15 +43,9 @@ function App() {
   }
   return (
     <div className="grid-container">
-<<<<<<< HEAD
-      <Sidebar />
-      <Library />
-      <Details />
-=======
       <Details userState={userState} />
       <Library setUserState={setUserState} userState={userState} />
       <Sidebar setUserState={setUserState} />
->>>>>>> 67674d3d8271a7b586715807100201ebc2fb3f15
     </div>
   );
 }

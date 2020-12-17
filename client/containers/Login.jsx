@@ -26,12 +26,14 @@ function Login({ LOGIN }) {
   }
   return (
     <div className="Login component">
-      <form onSubmit={handleSubmit}>
+      <img className="backgroundimage" src="client/styles/assets/background_image_70.png"></img>
+      <form className="loginform" onSubmit={handleSubmit}>
         <p>Login to your account</p>
         <label forhtml="username">Username</label>
         <input name="username" />
         <label forhtml="username">Password</label>
         <input name="password" type="password" />
+        <br></br>
         <input type="submit" value="Log In" />
       </form>
     </div>
