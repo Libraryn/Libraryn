@@ -43,7 +43,6 @@ function SearchBar({ setUserState }) {
       }
     });
     if (requestObject === undefined) return;
-    if (requestObject.some((val) => val === undefined)) return;
     const options = {
       method: 'POST',
       url: 'http://localhost:8080/api/book',
