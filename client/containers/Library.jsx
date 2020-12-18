@@ -6,7 +6,7 @@ import MainArea from '../components/library/MainArea';
 function Library({ setUserState, userState }) {
   return (
     <main className="library__container">
-      <SearchBar />
+      <SearchBar setUserState={setUserState} />
       <MainArea setUserState={setUserState} userState={userState} />
     </main>
   );

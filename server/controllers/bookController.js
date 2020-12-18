@@ -6,7 +6,7 @@ const bookController = {};
 
 bookController.addBook = (req, res, next) => {
   console.log("beginning addBook");
-  const { title, author } = req.body;
+  const { title, author, cover } = req.body;
   const params = [title, author];
   db.query(addBook, params)
     .then((data) => {

@@ -41,6 +41,7 @@ function App() {
   if (userState.isLoggedIn === false) {
     return <Login LOGIN={LOGIN} />;
   }
+  
   return (
     <div className="grid-container">
       <Details userState={userState} />
