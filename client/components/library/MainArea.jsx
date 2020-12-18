@@ -104,7 +104,7 @@ function MainArea({ setUserState, userState, UPDATE }) {
               author: row.author,
               borrower: row.borrower,
               condition: row.condition,
-              image: row.image,
+              cover: row.cover,
               book_id: row.book_id,
             },
           }));
@@ -127,7 +127,7 @@ function MainArea({ setUserState, userState, UPDATE }) {
               <input
                 name="borrow__select"
                 className="name"
-                id={`select__${row.image}`}
+                id={`select__${row.cover}`}
                 onChange={(e) => {
                   setBorrower(e.target.value);
                 }}
@@ -148,7 +148,7 @@ function MainArea({ setUserState, userState, UPDATE }) {
               <input
                 name="condition__select"
                 className="name"
-                id={`select__${row.image}`}
+                id={`select__${row.cover}`}
                 onChange={(e) => {
                   setCondition(e.target.value);
                 }}

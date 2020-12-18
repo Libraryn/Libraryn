@@ -6,7 +6,7 @@ function BookInfo({ userState }) {
 
   return (
     <div className="details__bookInfo flex">
-      <img src={`http://covers.openlibrary.org/b/id/${userState.selectedBook.image}.jpg`} alt="book cover" />
+      <img src={`http://covers.openlibrary.org/b/id/${userState.selectedBook.cover}.jpg`} alt="book cover" />
 
       <span>{userState.selectedBook.title}</span>
       <span>{userState.selectedBook.author}</span>
