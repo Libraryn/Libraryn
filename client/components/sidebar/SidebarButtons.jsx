@@ -29,7 +29,8 @@ function SidebarButtons({ setUserState }) {
     axios
       .request(options)
       .then(function (response) {
-        setUserState((state) => ({ ...state, books: [...state.books, formState] }));
+        setUserState((state) => ({...state,  books: [...state.books, formState] }));
+        console.log(response);
       })
       .catch(function (error) {
         console.error(error);
@@ -38,7 +39,7 @@ function SidebarButtons({ setUserState }) {
   }
   return (
     <div className="sidebar__buttons flex">
-      {/* {!adding ? (
+      {!adding ? (
         <button
           type="button"
           className="button__1"
@@ -70,7 +71,7 @@ function SidebarButtons({ setUserState }) {
           />
           <input type="submit" value="submit" />
         </form>
-      )} */}
+      )}
     </div>
   );
 }

@@ -11,7 +11,7 @@ CREATE TABLE users(
 CREATE TABLE books(
     _id SERIAL, 
     title varchar(255) NOT NULL, 
-    author varchar(255) NOT NULL,
+    author varchar(255) NOT NULL, 
     PRIMARY KEY (_id)
 );
 
