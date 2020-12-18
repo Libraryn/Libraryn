@@ -4,7 +4,7 @@ const fetchLibrary = `SELECT * FROM libraries l INNER JOIN users u ON u._id = l.
 
 const addBook = `INSERT INTO books(title, author) VALUES ($1, $2);`;
 const addToLibrary = `INSERT INTO libraries(user_id, book_id, borrower, condition) VALUES ($1, $2, $3, $4);`;
-const deleteBook = `DELETE FROM books WHERE user_id = $1 AND book_id = $2`;
+const deleteBook = `DELETE FROM libraries WHERE user_id = $1 AND book_id = $2`;
 const updateBorrower = `UPDATE libraries SET borrower = $1 WHERE user_id = $2 AND book_id = $3`;
 const updateCondition = `UPDATE libraries SET condition = $1 WHERE user_id = $2 AND book_id = $3`;
 
@@ -44,7 +44,7 @@ libraryController.getLibrary = (req, res, next) => {
 
 libraryController.deleteFromLibrary = (req, res, next) => {
   const { book_id } = req.body;
-  const user_id = req.cookies.user_id;
+  const { user_id } = req.cookies;
   const params = [user_id, book_id];
   db.query(deleteBook, params)
     .then((data) => {
@@ -58,7 +58,7 @@ libraryController.deleteFromLibrary = (req, res, next) => {
 
 libraryController.changeBorrower = (req, res, next) => {
   const { book_id, borrower } = req.body;
-  const user_id = req.cookies.user_id;
+  const { user_id } = req.cookies;
   const params = [borrower, user_id, book_id];
   db.query(updateBorrower, params)
     .then((data) => {
@@ -72,7 +72,7 @@ libraryController.changeBorrower = (req, res, next) => {
 
 libraryController.changeCondition = (req, res, next) => {
   const { book_id, condition } = req.body;
-  const user_id = req.cookies.user_id;
+  const { user_id } = req.cookies;
   const params = [condition, user_id, book_id];
   db.query(updateCondition, params)
     .then((data) => {

@@ -4,7 +4,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-function MainArea({ setUserState, userState }) {
+function MainArea({ setUserState, userState, UPDATE }) {
   const [selected, setSelected] = useState();
   const [updateBorrower, setUpdateBorrower] = useState('');
   const [borrower, setBorrower] = useState();
@@ -42,7 +42,7 @@ function MainArea({ setUserState, userState }) {
     axios
       .request(options)
       .then(function (res) {
-        setUserState((state) => ({ ...state, books: res.data }));
+        UPDATE();
       })
       .catch(function (error) {
         console.error(error);
@@ -52,16 +52,15 @@ function MainArea({ setUserState, userState }) {
   function deleteBook(book) {
     const options = {
       method: 'DELETE',
-      url: 'http://localhost:8080/api/deleteFromLibrary',
+      url: 'http://localhost:8080/api/delete',
       data: {
         book_id: book,
       },
     };
-    console.log(book);
     axios
       .request(options)
       .then(function (res) {
-        setUserState((state) => ({ ...state, books: res.data }));
+        UPDATE();
       })
       .catch(function (error) {
         console.error(error);
@@ -82,7 +81,7 @@ function MainArea({ setUserState, userState }) {
     axios
       .request(options)
       .then(function (res) {
-        setUserState((state) => ({ ...state, books: res.data }));
+        UPDATE();
       })
       .catch(function (error) {
         console.error(error);
@@ -113,7 +112,8 @@ function MainArea({ setUserState, userState }) {
         <span className="listItem__title">
           <input
             className="listItem__delete"
-            type="image" src={trashImage}
+            type="image"
+            src={trashImage}
             onClick={() => {
               deleteBook(row.book_id);
             }}
