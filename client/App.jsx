@@ -21,24 +21,11 @@ function App() {
     }));
   }
 
-  function UPDATE() {
-    const options = { method: 'GET', url: 'http://localhost:8080/api/getlibrary' };
-    axios
-      .request(options)
-      .then(function (res) {
-        setUserState((state) => ({ ...state, books: res.data }));
-      })
-      .catch(function (error) {
-        console.error(error);
-      });
-  }
-
+  const options = {
+    method: 'GET',
+    url: 'http://localhost:8080/api/',
+  };
   useEffect(() => {
-    console.log(userState.login)
-    const options = {
-      method: 'GET',
-      url: 'http://localhost:8080/api/',
-    };
     axios
       .request(options)
       .then(function (response) {
@@ -54,11 +41,10 @@ function App() {
   if (userState.isLoggedIn === false) {
     return <Login LOGIN={LOGIN} />;
   }
-
   return (
     <div className="grid-container">
       <Details userState={userState} />
-      <Library setUserState={setUserState} userState={userState} UPDATE={UPDATE} />
+      <Library setUserState={setUserState} userState={userState} />
       <Sidebar setUserState={setUserState} />
     </div>
   );
